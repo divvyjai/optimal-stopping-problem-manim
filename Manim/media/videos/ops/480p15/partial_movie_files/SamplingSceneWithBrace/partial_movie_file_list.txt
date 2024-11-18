@@ -1,0 +1,10 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/SamplingSceneWithBrace/950219021_2333221616_223132457.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/SamplingSceneWithBrace/432605071_2354934070_2684243111.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/SamplingSceneWithBrace/432605071_546250636_2991565093.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/SamplingSceneWithBrace/432605071_2564636818_2238880879.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/SamplingSceneWithBrace/432605071_2791376510_1740819861.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/SamplingSceneWithBrace/432605071_1141282389_4211325640.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/SamplingSceneWithBrace/432605071_3805950819_1316333294.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/SamplingSceneWithBrace/432605071_3091566531_2970139588.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/SamplingSceneWithBrace/432605071_2752318231_837982882.mp4'

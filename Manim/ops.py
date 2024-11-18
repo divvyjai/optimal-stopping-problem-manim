@@ -119,7 +119,7 @@ class SamplingSceneWithBrace(Scene):
         Text.set_default(color="#1a1a1a")
         MathTex.set_default(color="#1a1a1a")
         # n_investors = 8
-        investor_values = [4, 3, 3, 5, 8, 2, 3, 4]
+        investor_values = [4, 3, 3, 5, 2, 3, 8, 4]
         # Create 10 investor icons as circles
         investors = VGroup(*[Circle(radius=0.5) for _ in range(len(investor_values))])
         investors.arrange(RIGHT, buff=0.5)  # Arrange them in a row
@@ -134,63 +134,251 @@ class SamplingSceneWithBrace(Scene):
         # Show the investors and labels
         self.play(FadeIn(investors), FadeIn(labels))
 
-        # Create the moving brace (initially placed next to the first 2 investors)
-        brace = Brace(VGroup(*investors[:2]), DOWN, color="#1a1a1a")
-        brace_label = brace.get_text("2 investors selected")
+        # Create the moving brace (initially placed next to the first 4 investors)
+        brace = Brace(VGroup(*investors[:4]), DOWN, color="#1a1a1a")
+        brace_label = brace.get_text('4 candidates being "looked" at')
 
         # Show the initial brace for selecting 2 investors
         self.play(FadeIn(brace), Write(brace_label))
 
         # Animate the selection of 2 investors
-        select_2 = VGroup(investors[:2])
-        select_2_labels = VGroup(labels[:2])
-        self.play(*[investor.animate.set_fill("#86CF64") for investor in select_2])
-        self.play(*[label.animate.set_color("#86CF64") for label in select_2_labels])
-
-        # Comment on 2 being too small
-        too_small_text = Tex("Too few samples?").shift(UP * 2)
-        self.play(Write(too_small_text))
-        # self.wait(1)
+        select_4 = VGroup(investors[:4])
+        select_4_labels = VGroup(labels[:4])
+        brace_label.target = brace.get_text("4 candidates rejected")
+        self.play(*[investor.animate.set_fill("#d62e1c") for investor in select_4], *[label.animate.set_color("#d62e1c") for label in select_4_labels], MoveToTarget(brace_label))
 
         # Clear the selection and text
-        self.play(*[investor.animate.set_fill(GRAY) for investor in select_2])
-        self.play(*[label.animate.set_color("#1a1a1a") for label in select_2_labels])
-        self.play(FadeOut(too_small_text))
+        #self.play(*[investor.animate.set_fill(GRAY) for investor in select_2])
+        #self.play(*[label.animate.set_color("#1a1a1a") for label in select_2_labels])
+        #self.play(FadeOut(too_small_text))
 
         # Move the brace to select 5 investors
-        brace.generate_target()
-        brace.target = Brace(VGroup(*investors[:5]), DOWN, color="#1a1a1a")
-        brace_label.generate_target()
-        brace_label.target = brace.get_text("5 investors selected")
+        #brace.generate_target()
+        #brace.target = Brace(VGroup(*investors[:4]), DOWN, color="#1a1a1a")
+        #brace_label.generate_target()
+        
 
         # Animate the moving of the brace and changing the text
-        self.play(MoveToTarget(brace), MoveToTarget(brace_label))
+        #self.play(MoveToTarget(brace), MoveToTarget(brace_label))
 
         # Animate the selection of 5 investors
-        select_5 = VGroup(investors[:5])
-        select_5_labels = VGroup(labels[:5])
-        self.play(*[investor.animate.set_fill("#86CF64") for investor in select_5])
-        self.play(*[label.animate.set_color("#86CF64") for label in select_5_labels])
-
-        # Comment on 5 being too large
-        too_large_text = Tex("Too many samples?").shift(UP * 2)
-        self.play(Write(too_large_text))
-        self.wait(1)
-
-        # Clear the selection and text
-        self.play(*[investor.animate.set_fill(GRAY) for investor in select_5])
-        self.play(*[label.animate.set_color("#1a1a1a") for label in select_5_labels])
-        self.play(FadeOut(too_large_text), FadeOut(brace), FadeOut(brace_label))
-
-        # End the scene with a final comment or conclusion
-        conclusion_text = Tex("Finding the right number of samples is key.").shift(
-            UP * 3
-        )
-        self.play(Write(conclusion_text))
-        self.play(FadeOut(conclusion_text), FadeOut(investors), FadeOut(labels))
+        brace_best = Brace(VGroup(*investors[3:4]), UP, color="#1a1a1a")
+        brace_best_label = brace_best.get_text('Best candidate')
+        select_4th = VGroup(investors[3:4])
+        select_4th_labels = VGroup(labels[3:4])
+        self.play(*[investor.animate.set_fill("#f0d53e") for investor in select_4th])
+        self.play(*[label.animate.set_color("#f0d53e") for label in select_4th_labels], FadeIn(brace_best), Write(brace_best_label))
 
         self.wait(2)
 
+        brace_consider = Brace(VGroup(*investors[4:8]), DOWN, color="#1a1a1a")
+        brace_consider_label = brace_consider.get_text('Candidates being considered')
+
+        select_5th = VGroup(investors[4:5])
+        select_5th_labels = VGroup(labels[4:5])
+        self.play(FadeOut(brace), FadeOut(brace_best), FadeOut(brace_label), FadeOut(brace_best_label), FadeIn(brace_consider), Write(brace_consider_label), *[investor.animate.set_fill("#d62e1c") for investor in select_5th], *[label.animate.set_color("#d62e1c") for label in select_5th_labels])
+
+        select_6th = VGroup(investors[5:6])
+        select_6th_labels = VGroup(labels[5:6])
+        self.play(*[investor.animate.set_fill("#d62e1c") for investor in select_6th], *[label.animate.set_color("#d62e1c") for label in select_6th_labels])
+
+        select_7th = VGroup(investors[6:7])
+        select_7th_labels = VGroup(labels[6:7])
+        brace_best_in_consider = Brace(VGroup(*investors[6:7]), UP, color="#1a1a1a")
+        brace_best_in_consider_label = brace_best_in_consider.get_text('Better than 5')
+        
+        self.play(*[investor.animate.set_fill("#86CF64") for investor in select_7th], *[label.animate.set_color("#86CF64") for label in select_7th_labels], FadeIn(brace_best_in_consider), Write(brace_best_in_consider_label))
+
+
+class ExampleWithTwo(Scene):
+    def construct(self):
+        Text.set_default(color="#1a1a1a")
+        MathTex.set_default(color="#1a1a1a")
+        # n_investors = 8
+        student_values = [1.7, 0.3]
+        # Create 10 investor icons as circles
+        students = VGroup(*[Circle(radius=1) for _ in range(len(student_values))])
+        students.arrange(RIGHT, buff=0.5)  # Arrange them in a row
+        students.set_fill("#434343")  # Initially gray
+        students.set_stroke(width=2)  # Set border width
+
+        labels = VGroup(*[Text(str(student)) for student in student_values])
+        for i, label in enumerate(labels):
+            label.move_to(students[i].get_center())
+        
+        self.play(FadeIn(students), FadeIn(labels))
+
+        select_1 = VGroup(students[:1])
+        select_1_labels = VGroup(labels[:1])
+        select_2 = VGroup(students[1:2])
+        select_2_labels = VGroup(labels[1:2])
+        
+        self.play(*[student.animate.set_fill("#86CF64") for student in select_1])
+        self.play(*[label.animate.set_color("#86CF64") for label in select_1_labels])
+        self.wait(1)
+        
+        self.play(*[student.animate.set_fill("#d62e1c") for student in select_1], *[student.animate.set_fill("#86CF64") for student in select_2])
+        self.play(*[label.animate.set_color("#d62e1c") for label in select_1_labels], *[label.animate.set_color("#86CF64") for label in select_2_labels])
+        self.wait(1)
+
+class ExampleWithThree(Scene):
+    def construct(self):
+        Text.set_default(color="#1a1a1a")
+        MathTex.set_default(color="#1a1a1a")
+        # n_investors = 8
+        student_values = [0.2, -1.9, 2.4]
+        # Create 10 investor icons as circles
+        students = VGroup(*[Circle(radius=1) for _ in range(len(student_values))])
+        students.arrange(RIGHT, buff=0.5)  # Arrange them in a row
+        students.set_fill("#434343")  # Initially gray
+        students.set_stroke(width=2)  # Set border width
+
+        labels = VGroup(*[Text(str(student)) for student in student_values])
+        for i, label in enumerate(labels):
+            label.move_to(students[i].get_center())
+        
+        self.play(FadeIn(students), FadeIn(labels))
+
+        select_1 = VGroup(students[:1])
+        select_1_labels = VGroup(labels[:1])
+        select_2 = VGroup(students[1:2])
+        select_2_labels = VGroup(labels[1:2])
+        select_3 = VGroup(students[2:3])
+        select_3_labels = VGroup(labels[2:3])
+        
+        self.play(*[student.animate.set_fill("#86CF64") for student in select_1])
+        self.play(*[label.animate.set_color("#86CF64") for label in select_1_labels])
+        
+        self.play(*[student.animate.set_fill("#d62e1c") for student in select_1], *[student.animate.set_fill("#86CF64") for student in select_2])
+        self.play(*[label.animate.set_color("#d62e1c") for label in select_1_labels], *[label.animate.set_color("#86CF64") for label in select_2_labels])
+
+        self.play(*[student.animate.set_fill("#d62e1c") for student in select_1], *[student.animate.set_fill("#d62e1c") for student in select_2], *[student.animate.set_fill("#86CF64") for student in select_3])
+        self.play(*[label.animate.set_color("#d62e1c") for label in select_1_labels], *[label.animate.set_color("#d62e1c") for label in select_2_labels], *[label.animate.set_color("#86CF64") for label in select_3_labels])
+
+class FinalExampleWithThree(Scene):
+    def construct(self):
+        Text.set_default(color="#1a1a1a")
+        MathTex.set_default(color="#1a1a1a")
+
+        student_values = [-1.9, 0.2, 2.4]
+
+        # Create the headers
+        headers = VGroup(
+            Text("Reject").scale(0.8),
+            Text("Compare").scale(0.8),
+            Text("Result").scale(0.8)
+        ).arrange(RIGHT, buff=1.5)
+        headers.move_to(UP * 2)
+
+        case1 = VGroup(
+            *[Circle(radius=1) for _ in range(len(student_values))]
+        ).arrange(RIGHT, buff=1.5).scale(0.7)
+        case1.move_to(LEFT * 1)
+
+        # Add headers to the scene
+        self.play(FadeIn(headers))
+        self.play(FadeIn(case1))
+        self.wait(2)
+
+class iMinusOne(Scene):
+    def construct(self):
+        Text.set_default(color="#1a1a1a")
+        MathTex.set_default(color="#1a1a1a")
+        # n_investors = 8
+        investor_values_one = [1, 5, 3, 8, 4]
+        # Create 10 investor icons as circles
+        investors = VGroup(*[Circle(radius=0.5) for _ in range(len(investor_values_one))])
+        investors.arrange(RIGHT, buff=0.5)  # Arrange them in a row
+        investors.set_fill("#434343")  # Initially gray
+        investors.set_stroke(width=2)  # Set border width
+        investors.move_to(UP * 2 + LEFT * 2)
+
+        # Create labels for each investor
+        labels = VGroup(*[Text(str(investor)) for investor in investor_values_one])
+        for i, label in enumerate(labels):
+            label.move_to(investors[i].get_center())
+
+        # Show the investors and labels
+        self.play(FadeIn(investors), FadeIn(labels))
+
+        brace = Brace(VGroup(*investors[:3]), DOWN, color="#1a1a1a")
+        brace_label = brace.get_text('Rejection region')
+
+        select_1st = VGroup(investors[:1])
+        select_1st_labels = VGroup(labels[:1])
+        select_2nd = VGroup(investors[1:2])
+        select_2nd_labels = VGroup(labels[1:2])
+        select_3rd = VGroup(investors[2:3])
+        select_3rd_labels = VGroup(labels[2:3])
+        select_4th = VGroup(investors[3:4])
+        select_4th_labels = VGroup(labels[3:4])
+        brace_label.target = brace.get_text("Rejection region")
+        self.play(FadeIn(brace), Write(brace_label))
+        self.play(
+            *[investor.animate.set_fill("#d62e1c") for investor in select_1st],
+            *[label.animate.set_color("#d62e1c") for label in select_1st_labels],
+            *[investor.animate.set_fill("#f0d53e") for investor in select_2nd],
+            *[label.animate.set_color("#f0d53e") for label in select_2nd_labels],
+            *[investor.animate.set_fill("#d62e1c") for investor in select_3rd],
+            *[label.animate.set_color("#d62e1c") for label in select_3rd_labels],
+            *[investor.animate.set_fill("#86CF64") for investor in select_4th],
+            *[label.animate.set_color("#86CF64") for label in select_4th_labels],
+            MoveToTarget(brace_label))
+
+        Text.set_default(color="#86CF64")
+        good_text = Text("Good!")
+        good_text.move_to(UP * 1.5 + RIGHT * 4)
+        Text.set_default(color="#1a1a1a")
+
+        self.play(Write(good_text))
+
+        self.wait(1)
+
+        investor_values_two = [3, 2, 5, 7, 9]
+
+        investors = VGroup(*[Circle(radius=0.5) for _ in range(len(investor_values_two))])
+        investors.arrange(RIGHT, buff=0.5)  # Arrange them in a row
+        investors.set_fill("#434343")  # Initially gray
+        investors.set_stroke(width=2)  # Set border width
+        investors.move_to(DOWN * 1 + LEFT * 2)
+
+        # Create labels for each investor
+        labels = VGroup(*[Text(str(investor)) for investor in investor_values_two])
+        for i, label in enumerate(labels):
+            label.move_to(investors[i].get_center())
+
+        # Show the investors and labels
+        self.play(FadeIn(investors), FadeIn(labels))
+
+        brace = Brace(VGroup(*investors[:3]), DOWN, color="#1a1a1a")
+        brace_label = brace.get_text('Rejection region')
+
+        select_1st = VGroup(investors[:1])
+        select_1st_labels = VGroup(labels[:1])
+        select_2nd = VGroup(investors[1:2])
+        select_2nd_labels = VGroup(labels[1:2])
+        select_3rd = VGroup(investors[2:3])
+        select_3rd_labels = VGroup(labels[2:3])
+        select_4th = VGroup(investors[3:4])
+        select_4th_labels = VGroup(labels[3:4])
+        brace_label.target = brace.get_text("Rejection region")
+        self.play(FadeIn(brace), Write(brace_label))
+        self.play(
+            *[investor.animate.set_fill("#d62e1c") for investor in select_1st],
+            *[label.animate.set_color("#d62e1c") for label in select_1st_labels],
+            *[investor.animate.set_fill("#d62e1c") for investor in select_2nd],
+            *[label.animate.set_color("#d62e1c") for label in select_2nd_labels],
+            *[investor.animate.set_fill("#f0d53e") for investor in select_3rd],
+            *[label.animate.set_color("#f0d53e") for label in select_3rd_labels],
+            *[investor.animate.set_fill("#86CF64") for investor in select_4th],
+            *[label.animate.set_color("#86CF64") for label in select_4th_labels],
+            MoveToTarget(brace_label))
+
+        Text.set_default(color="#d62e1c")
+        bad_text = Text("Bad!")
+        bad_text.move_to(DOWN * 1.5 + RIGHT * 4)
+
+        self.play(Write(bad_text))
 
 class DerivationOfSumFormula(Scene):
     def construct(self):

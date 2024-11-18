@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/1080p60/partial_movie_files/ExampleWithTwo/3199483885_2869115778_223132457.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/1080p60/partial_movie_files/ExampleWithTwo/1351931238_4192016434_324543089.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/1080p60/partial_movie_files/ExampleWithTwo/1351931238_160898700_240160731.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/1080p60/partial_movie_files/ExampleWithTwo/1351931238_3890345977_779176283.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/1080p60/partial_movie_files/ExampleWithTwo/1351931238_2181619931_2459950121.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/1080p60/partial_movie_files/ExampleWithTwo/1351931238_1970138847_2046757759.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/1080p60/partial_movie_files/ExampleWithTwo/1351931238_3890345977_200697840.mp4'

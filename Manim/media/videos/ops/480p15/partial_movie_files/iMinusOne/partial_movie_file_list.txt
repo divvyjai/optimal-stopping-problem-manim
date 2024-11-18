@@ -1,0 +1,10 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/iMinusOne/950219021_3640646793_223132457.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/iMinusOne/432605071_534017509_2939916121.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/iMinusOne/432605071_871107502_1476074266.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/iMinusOne/432605071_1012539705_145142617.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/iMinusOne/432605071_3890345977_1024343604.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/iMinusOne/432605071_3741936450_316744651.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/iMinusOne/432605071_2569300123_2677041234.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/iMinusOne/432605071_3788464515_3400190541.mp4'
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/iMinusOne/432605071_1346686561_3416410134.mp4'

@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/dhivyeshjai/CS/Repos/optimal-stopping-problem-manim/Manim/media/videos/ops/480p15/partial_movie_files/ExampleWithThree/950219021_1054079704_223132457.mp4'
